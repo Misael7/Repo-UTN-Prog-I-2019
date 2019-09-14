@@ -17,10 +17,16 @@
 int main(void)
 {
 	int numerito;
+	float numerito2;
+	char palabrita[50];
 	int ret;
+	float ret2;
+	char ret3;
 
 
 	ret = getIntUTN(&numerito);
+	ret2 = getFloatUTN(&numerito2);
+	ret3 = getCharUTN(&palabrita);
 
 	if(ret < 0)
 	{
@@ -29,7 +35,10 @@ int main(void)
 	else if(ret==0)
 	{
 		printf("Se ingreso %d",numerito);
+		printf("Se ingreso %f",numerito2);
+		printf("Se ingreso %s",palabrita);
 	}
+
 
 
 	return 0;
