@@ -23,6 +23,7 @@ int getIntUTN(int * intInput)
 	int errorNum=0;
 	int numLength;
 	char numInt[6];
+	printf("Ingrese INT");
 	fgets(numInt,sizeof(numInt),stdin);
 	numLength=strlen(numInt);
 	for(int i=0;i<numLength-1;i++)
@@ -46,6 +47,33 @@ int getIntUTN(int * intInput)
 
 int getFloatUTN(float * floatInput)
 {
+	float buffer = 0;
+	int errorNum=0;
+	float numLength;
+	char numFloat[20];
+	printf("Ingrese float");
+	FLUSH;
+	fgets(numFloat,sizeof(numFloat),stdin);
+	numLength=strlen(numFloat);
+	for(int i=0;i<numLength-1;i++)
+		{
+			if(!(numFloat[i]>='0' && numFloat[i]<='9'))
+			{
+				errorNum=-1;
+				break;
+			}
+		}
+
+	if(errorNum==0)
+	{
+		buffer=atof(numFloat);
+		*floatInput=buffer;
+	}
+
+
+	return errorNum;
+}
+/*{
 	float getFloat=0;
 	int errorNum=0;
 	scanf("%f",&getFloat);
@@ -60,10 +88,12 @@ int getFloatUTN(float * floatInput)
 	}
 	return errorNum;
 }
-
+*/
 int getCharUTN(char * charInput)
 {
 	fgets(charInput,sizeof(charInput),stdin);
+	printf("char %s",charInput);
 	return 0;
 }
+
 

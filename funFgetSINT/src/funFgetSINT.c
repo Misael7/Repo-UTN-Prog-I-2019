@@ -34,9 +34,9 @@ int main(void)
 	}
 	else if(ret==0)
 	{
-		printf("Se ingreso %d",numerito);
-		printf("Se ingreso %f",numerito2);
-		printf("Se ingreso %s",palabrita);
+		printf("Se ingreso int %d",numerito);
+		printf(" Se ingreso float %f",numerito2);
+		printf(" Se ingreso char %s",palabrita);
 	}
 
 
