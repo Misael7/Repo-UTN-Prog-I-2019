@@ -34,10 +34,33 @@ utn_getFecha
 *
 ***************************/
 
+/*---------------------Value limiter---------------------*/
+int minMax(int* minNum, int* maxNum)
+{
+   int minBuffer=0;
+   int maxBuffer=0;
+   printf("Set min value \0");
+   FLUSH;
+   scanf("%d",&minBuffer);
+   printf("Set max value \0");
+   FLUSH;
+   scanf("%d",&maxBuffer);
+   if (minBuffer<=maxBuffer)
+   {
+	   *minNum=minBuffer;
+	   *maxNum=maxBuffer;
+   }
+
+   return 0;
+}
+
+/*----------------------Multi purpose String-----------------------------*/
 int getString(char*obtString)
 {
     int retorno=-1;
     char stringBuffer[50];
+    int min,max;
+    minMax(&min,&max);
     FLUSH; //
     fgets(stringBuffer,sizeof(stringBuffer),stdin);
     stringBuffer[strlen(stringBuffer)-1]='\0'; //Removes 'enter' character.
@@ -48,38 +71,31 @@ int getString(char*obtString)
     	}
     return retorno;
 }
+/*-----------------------------Name only string---------------------------*/
+int getStringNames(char*obtStringNames)
+{
+    int retorno=-1;
+    char stringBuffer[50];
+    FLUSH; //
+    fgets(stringBuffer,sizeof(stringBuffer),stdin);
+    stringBuffer[strlen(stringBuffer)-1]='\0'; //Removes 'enter' character.
+     if(obtStringNames!=NULL)
+    	{
+    	 if(!(obtStringNames>='0' && obtStringNames<='9'))
+    	 	 {
+    		 	 strncpy(obtStringNames,stringBuffer,sizeof(stringBuffer));
+    		 	 retorno = 0;
+    	 	 }
+    	}
+    return retorno;
+}
+
+
+
 
 /*
 
-//------------------------------
-int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
-{
-    int retorno=-1;
-    char bufferStr[max];
 
-    if(msg!=NULL && msgError!=NULL && min<=max && reintentos>=0 && resultado!=NULL)
-    {
-        do
-        {
-            if(!getString(msg,msgError,min,max,&reintentos,bufferStr)) //==0
-            {
-                if(isValidName(bufferStr)==1)
-                {
-                    strncpy(resultado,bufferStr,max);
-                    retorno=0;
-                    break;
-                }
-                else
-                {
-                    printf("%s 2",msgError);
-                    reintentos--;
-                }
-            }
-        }
-        while(reintentos>=0);
-    }
-    return retorno;
-}
 
 int isValidName(char* stringRecibido)   //si fuera un numero podrìa necesitar parametros para validar max y min
 {

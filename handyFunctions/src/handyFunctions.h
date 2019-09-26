@@ -15,6 +15,8 @@
 #define FLUSH __fpurge(stdin);
 
 int getString(char*obtString);
+int minMax(int* minNum, int* maxNum);
+int getStringNames(char*obtStringNames);
 
 
 #endif /* HANDYFUNCTIONS_H_ */

@@ -15,7 +15,12 @@
 int main(void)
 {
 	char a[50];
+	char aName[50];
+	printf("Get Char\n");
 	getString(a);
-	printf("Main %s",a); //Print test getString
+	printf("Get Char names\n");
+	getStringNames(aName);
+	printf("Main string test %s \n",a); //Print test getString
+	printf("Main string names test %s\n",aName);
 	return EXIT_SUCCESS;
 }
