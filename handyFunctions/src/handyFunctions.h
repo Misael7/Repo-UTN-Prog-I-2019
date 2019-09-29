@@ -17,6 +17,9 @@
 int getString(char*obtString);
 int minMax(int* minNum, int* maxNum);
 int getStringNames(char*obtStringNames);
+int getInt(int*obtInt);
+int getUnsignedInt(int*obtInt);
+int getFloat(float*obtFloat);
 
 
 #endif /* HANDYFUNCTIONS_H_ */
