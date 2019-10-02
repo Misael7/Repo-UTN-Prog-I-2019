@@ -33,9 +33,10 @@ int main(void)
 
 	printf("Main string test %s \n",a); //Print test getString
 	printf("Main string names test %s\n",aName);
-	printf("Main int test %d",intA);
-	printf("Main unsigned int test %d",intB);
-	printf("Main float test %f",floatA);
+	printf("Main int test %d\n",intA);
+	printf("Main unsigned int test %d\n",intB);
+	printf("Main float test %f\n"
+			"",floatA);
 
 
 	return EXIT_SUCCESS;
