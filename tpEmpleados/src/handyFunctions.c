@@ -42,7 +42,7 @@ int getString(char*obtString)
     stringBuffer[strlen(stringBuffer)-1]='\0'; //Removes 'enter' character.
      if(obtString!=NULL)
     	{
-    		strncpy(obtString,stringBuffer,sizeof(stringBuffer));
+    		strncpy(obtString,stringBuffer,sizeof(obtString));
     		errorReturn=0;
     	}
     return errorReturn;
