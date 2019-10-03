@@ -13,9 +13,11 @@
 #include <stdio_ext.h>
 #include "tpEmpleadosStruct.h"
 #include "handyFunctions.h"
+#include "tpEmpleadosRequests.h"
+#define LENGTH 1000
 
 int main(void)
 {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
-	return EXIT_SUCCESS;
+	Employee listA[LENGTH];
+	return 0;
 }

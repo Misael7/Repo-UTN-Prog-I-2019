@@ -9,17 +9,11 @@
 
 
 
-int startEmployee(listA[],int length)
+int startEmployee(Employee listA[],int length)
 {
-	int lengthBuffer;
-	printf("Ingrese cantidad de empleados");
-	getInt(&lengthBuffer);
-	lengthBuffer=length;
-	listA[length];
 	if(listA!=NULL)
 	{
-
-		for(int i=0; i < sizeof(ListA);i++)
+		for(int i=0; i < LENGTH;i++)
 			{
 				listA[i].isEmpty=1;
 			}
@@ -29,4 +23,8 @@ int startEmployee(listA[],int length)
 }
 
 
-int addEmployee(listA[], listA.ID[])
+int addEmployee(Employee listA[], int length)
+{
+
+	return 0;
+}

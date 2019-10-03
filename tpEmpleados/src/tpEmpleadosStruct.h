@@ -7,8 +7,16 @@
 
 #ifndef TPEMPLEADOSSTRUCT_H_
 #define TPEMPLEADOSSTRUCT_H_
-#include "tpEmpleadosStruct.c"
 #include "handyFunctions.h"
+
+typedef struct {
+	int empID;
+	char name[51];
+	char lastName[51];
+	float salary;
+	int sector;
+	int isEmpty;
+} Employee;
 
 
 

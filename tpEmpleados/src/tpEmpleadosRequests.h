@@ -7,16 +7,13 @@
 
 #ifndef TPEMPLEADOSREQUESTS_H_
 #define TPEMPLEADOSREQUESTS_H_
-#include "tpEmpleadosRequests.c"
 #include "tpEmpleadosStruct.h"
-#include "tpEmpleadosStruct.c"
 #include "handyFunctions.h"
-#include "tpEmpleados.c"
 #include <stdio_ext.h>
+#define LENGTH 1000
 
-struct Employee listA[];
-
-int startEmployee(listA[],int length);
+int startEmployee(Employee listA[],int length);
+int addEmployee(Employee listA[],int length);
 
 
 #endif /* TPEMPLEADOSREQUESTS_H_ */
