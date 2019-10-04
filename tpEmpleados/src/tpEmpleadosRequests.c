@@ -105,13 +105,53 @@ int sortEmployee(Employee listA[],int length)
 		{
 			if(strcmp(listA[i].lastName,listA[j].lastName)>0)
 			{
-				printf("\nCONDICIONAL\n");
+				auxEmp1 = listA[i];
+				auxEmp2 = listA[j];
+				listA[i] = auxEmp2;
+				listA[j] = auxEmp1;
+			}
+
+			if(listA[i].sector>listA[j].sector)
+			{
 				auxEmp1 = listA[i];
 				auxEmp2 = listA[j];
 				listA[i] = auxEmp2;
 				listA[j] = auxEmp1;
 			}
 		}
+	printf("\n Ordenamiento listo!\n");
 	}
+	return 0;
+}
+
+int totalAverageSalary(Employee listA[],int length)
+{
+	float salaryAux1=0;
+	float totalSalary=0;
+	float salaryAverage=0;
+	int salaryCounter=0;
+	int aboveAverage=0;
+
+	for(int i=0; i < length;i++)
+	{
+		if(listA[i].isEmpty!=1)
+		{
+			salaryAux1=listA[i].salary;
+			totalSalary=salaryAux1 + totalSalary;
+			salaryCounter++;
+		}
+	}
+	salaryAverage=totalSalary/salaryCounter;
+	for	(int i=0; i < length;i++)
+	{
+		if(listA[i].isEmpty!=1)
+		{
+			if(listA[i].salary>salaryAverage)
+			{
+				aboveAverage++;
+			}
+		}
+	}
+	printf("\n Salario total: %f \n Salario promedio: %f \n Empleados que superan el promedio: %d \n",totalSalary,salaryAverage,aboveAverage);
 	return 0;
 }

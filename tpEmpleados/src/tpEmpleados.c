@@ -26,7 +26,7 @@ int main(void)
 
 	do
 	{
-		printf("\n Ingrese una opción para operar:\n 1)Alta de empleado \n 2)Modificar datos de empleado \n 3)Baja de empleado \n 4)Buscar empleado \n 5)Ordenar por nombre \n 8)Mostrar empleados \n ... \n Ingrese 9 para salir del programa \n");
+		printf("\n Ingrese una opción para operar:\n 1)Alta de empleado \n 2)Modificar datos de empleado \n 3)Baja de empleado \n 4)Buscar empleado \n 5)Ordenar por nombre \n 7)Informe Salarios \n 8)Mostrar empleados \n ... \n Ingrese 9 para salir del programa \n");
 		FLUSH;
 		scanf("%d",&menuOptions);
 
@@ -76,26 +76,40 @@ int main(void)
 				break;
 				//-------------------------------------------------------------------------//
 				case(5):
-										if(flagAdd==1)
-										{
-											sortEmployee(listA,LENGTH);
-										}
-										else
-										{
-											printf("\n Debe cargar un empleado antes de buscarlo\n");
-										}
-								FLUSH;
-								break;
+						if(flagAdd==1)
+						{
+							sortEmployee(listA,LENGTH);
+						}
+						else
+						{
+							printf("\n Debe cargar un empleado antes de buscarlo\n");
+						}
+				FLUSH;
+				break;
 				//-------------------------------------------------------------------------//
-				case(8):
+				case(7):
 						if(flagAdd==1)
 						{
 							printEmployees(listA,LENGTH);
 						}
 						else
 						{
+							printf("\n Debe cargar un empleado para mostrar salarios");
+						}
+				FLUSH;
+				break;
+				//-------------------------------------------------------------------------//
+				case(8):
+						if(flagAdd==1)
+						{
+							totalAverageSalary(listA,LENGTH);
+						}
+						else
+						{
 							printf("\n Debe cargar un empleado para mostrarlo!!");
 						}
+				FLUSH;
+				break;
 
 		}
 		/////////////endswitch

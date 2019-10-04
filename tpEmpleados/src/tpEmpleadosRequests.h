@@ -52,8 +52,18 @@ int removeEmployee(Employee listA[], int length,int idSearch);
  * \return 0 for no errors met in runtime. *
  */
 int modEmployee(Employee listA[],int length, int idSearch);
-
+/* \brief: Sort employees by sector and lastName, takes sector as priority *
+ * \param Employee listA to array struct of employees
+ * \param length value for length of the struct array *
+ * \return 0 for no errors met in runtime. *
+ */
 int sortEmployee(Employee listA[],int length);
+/* \brief: Calculates total salary, average salary and ammount of employees above average salary *
+ * \param Employee listA to array struct of employees
+ * \param length value for length of the struct array *
+ * \return 0 for no errors met in runtime. *
+ */
+int totalAverageSalary(Employee listA[],int length);
 
 
 #endif /* TPEMPLEADOSREQUESTS_H_ */
