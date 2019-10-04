@@ -134,7 +134,8 @@ int getFloat(float*obtFloat)
     	}
     	if(errorReturn==0)
     	{
-    		*obtFloat=atof(bufferStr);
+    		*obtFloat=atof("20");
+    		printf("obtFloat es %f",*obtFloat);
     	}
     }
     return errorReturn;

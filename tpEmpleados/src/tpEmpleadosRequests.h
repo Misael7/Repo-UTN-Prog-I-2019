@@ -10,10 +10,11 @@
 #include "tpEmpleadosStruct.h"
 #include "handyFunctions.h"
 #include <stdio_ext.h>
-#define LENGTH 1000
+
 
 int startEmployee(Employee listA[],int length);
 int addEmployee(Employee listA[],int length);
+int printEmployees(Employee* list, int length);
 
 
 #endif /* TPEMPLEADOSREQUESTS_H_ */

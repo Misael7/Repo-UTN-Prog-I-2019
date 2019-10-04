@@ -33,28 +33,29 @@ int minMax(int* minNum, int* maxNum)//Base code only, must reinvent target funct
    return 0;
 }
 /*----------------------Multi purpose String-----------------------------*/
-int getString(char*obtString)
+int getString(char* obtString)
 {
 	int errorReturn=1;
     char stringBuffer[50];
+
     FLUSH; //
     fgets(stringBuffer,sizeof(stringBuffer),stdin);
     stringBuffer[strlen(stringBuffer)-1]='\0'; //Removes 'enter' character.
      if(obtString!=NULL)
     	{
-    		strncpy(obtString,stringBuffer,sizeof(obtString));
+    	 	strncpy(obtString,stringBuffer,sizeof(obtString));
     		errorReturn=0;
     	}
     return errorReturn;
 }
 /*-----------------------------Name only string---------------------------*/
-int getStringNames(char*obtStringNames)
+int getStringNames(char* obtStringNames)
 {
 	int errorReturn=1;
     char stringBuffer[50];
     FLUSH;
     getString(stringBuffer);
-    if(obtStringNames!=NULL)
+    if(stringBuffer!=NULL)
     	{
     	 for(int i=0;stringBuffer[i]!='\0';i++)
     	 {
@@ -65,16 +66,16 @@ int getStringNames(char*obtStringNames)
     	 }
     	 if(errorReturn==0)
     	 {
-    		 strncpy(obtStringNames,stringBuffer,sizeof(stringBuffer));
+    		 strncpy(obtStringNames,stringBuffer,sizeof(obtStringNames));
     	 }
     	}
     return errorReturn;
 }
 /*-----------------------------Common INT type value---------------------------*/
-int getInt(int*obtInt)
+int getInt(int* obtInt)
 {
     int errorReturn=1;
-    char bufferStr[20];
+    char bufferStr[50]="";
     FLUSH;
     getString(bufferStr);
     if(bufferStr!=NULL)
@@ -94,10 +95,10 @@ int getInt(int*obtInt)
     return errorReturn;
 }
 /*-----------------------------Unsigned INT type value---------------------------*/
-int getUnsignedInt(int*obtInt)
+int getUnsignedInt(int* obtInt)
 {
     int errorReturn=1;
-    char bufferStr[20];
+    char bufferStr[50];
     FLUSH;
     getString(bufferStr);
     if(bufferStr!=NULL)
@@ -117,10 +118,10 @@ int getUnsignedInt(int*obtInt)
     return errorReturn;
 }
 /*-----------------------------Float type value---------------------------*/
-int getFloat(float*obtFloat)
+int getFloat(float* obtFloat)
 {
     int errorReturn=1;
-    char bufferStr[20];
+    char bufferStr[50];
     FLUSH;
     getString(bufferStr);
     if(bufferStr!=NULL)
@@ -134,7 +135,9 @@ int getFloat(float*obtFloat)
     	}
     	if(errorReturn==0)
     	{
+
     		*obtFloat=atof(bufferStr);
+
     	}
     }
     return errorReturn;
