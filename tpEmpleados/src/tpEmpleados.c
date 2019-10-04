@@ -90,7 +90,7 @@ int main(void)
 				case(7):
 						if(flagAdd==1)
 						{
-							printEmployees(listA,LENGTH);
+							totalAverageSalary(listA,LENGTH);
 						}
 						else
 						{
@@ -102,7 +102,7 @@ int main(void)
 				case(8):
 						if(flagAdd==1)
 						{
-							totalAverageSalary(listA,LENGTH);
+							printEmployees(listA,LENGTH);
 						}
 						else
 						{

@@ -119,7 +119,7 @@ int sortEmployee(Employee listA[],int length)
 				listA[j] = auxEmp1;
 			}
 		}
-	printf("\n Ordenamiento listo!\n");
+
 	}
 	return 0;
 }
