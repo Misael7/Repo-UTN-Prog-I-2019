@@ -28,13 +28,30 @@ int addEmployee(Employee listA[],int length);
  * \return 0 for no errors met in runtime. *
  */
 int printEmployees(Employee* list, int length);
-/* \brief: Locate Employee by ID searching by array position
+/* \brief: Locate Employee by ID searching by array position and prints it.
  * \param Employee listA to array struct of employees
  * \param length value for length of the struct array
  * \param idSearch for desired ID to be found
  * \return 0 for no errors met in runtime. *
  */
 int findEmployeeById(Employee listA[], int length,int idSearch);
+/* \brief: Locate Employee by ID searching by array position,
+ *  writes isEmpty=1, making the array position available again thus "deleting" the employee data
+ * \param Employee listA to array struct of employees
+ * \param length value for length of the struct array
+ * \param idSearch for desired ID to be "deleted"
+ * \return 0 for no errors met in runtime. *
+ */
+int removeEmployee(Employee listA[], int length,int idSearch);
+/* \brief: Locate Employee by ID searching by array position,
+ *  writes isEmpty=1, making the array position available again thus "deleting" the employee data
+ *  aftewards it calls for the add function, allowing to edit the data for that Employee ID.
+ * \param Employee listA to array struct of employees
+ * \param length value for length of the struct array
+ * \param idSearch for desired ID to be "deleted"
+ * \return 0 for no errors met in runtime. *
+ */
+int modEmployee(Employee listA[],int length, int idSearch);
 
 
 #endif /* TPEMPLEADOSREQUESTS_H_ */

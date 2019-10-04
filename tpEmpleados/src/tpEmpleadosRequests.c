@@ -75,3 +75,20 @@ int findEmployeeById(Employee listA[], int length,int idSearch)
 	printEmployees(listA,length);
 	return 0;
 }
+
+int removeEmployee(Employee listA[], int length,int idSearch)
+{
+	printf("\n Introduzca ID de empleado a dar de baja \n");
+	getInt(&idSearch);
+	listA[idSearch].isEmpty=1;
+	return 0;
+}
+
+int modEmployee(Employee listA[],int length, int idSearch)
+{
+	printf("\n Introduzca ID de empleado a modificar\n");
+	getInt(&idSearch);
+	listA[idSearch].isEmpty=1;
+	addEmployee(listA,length);
+	return 0;
+}

@@ -42,7 +42,7 @@ int main(void)
 				case(2):
 						if(flagAdd==1)
 						{
-
+							modEmployee(listA,LENGTH,searchNum);
 						}
 						else
 						{
@@ -54,7 +54,7 @@ int main(void)
 				case(3):
 						if(flagAdd==1)
 						{
-
+							removeEmployee(listA,LENGTH,searchNum);
 						}
 						else
 						{
@@ -62,7 +62,7 @@ int main(void)
 						}
 				FLUSH;
 				break;
-
+				//-------------------------------------------------------------------------//
 				case(4):
 						if(flagAdd==1)
 						{
@@ -74,7 +74,6 @@ int main(void)
 						}
 				FLUSH;
 				break;
-
 				//-------------------------------------------------------------------------//
 				case(8):
 						if(flagAdd==1)
