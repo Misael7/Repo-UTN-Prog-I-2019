@@ -92,3 +92,26 @@ int modEmployee(Employee listA[],int length, int idSearch)
 	addEmployee(listA,length);
 	return 0;
 }
+
+int sortEmployee(Employee listA[],int length)
+{
+	int i,j;
+	Employee auxEmp1;
+	Employee auxEmp2;
+
+	for(i=0; i < length;i++)
+	{
+		for(j=i+1; j< length ; j++)
+		{
+			if(strcmp(listA[i].lastName,listA[j].lastName)>0)
+			{
+				printf("\nCONDICIONAL\n");
+				auxEmp1 = listA[i];
+				auxEmp2 = listA[j];
+				listA[i] = auxEmp2;
+				listA[j] = auxEmp1;
+			}
+		}
+	}
+	return 0;
+}

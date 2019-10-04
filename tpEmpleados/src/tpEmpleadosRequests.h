@@ -53,5 +53,7 @@ int removeEmployee(Employee listA[], int length,int idSearch);
  */
 int modEmployee(Employee listA[],int length, int idSearch);
 
+int sortEmployee(Employee listA[],int length);
+
 
 #endif /* TPEMPLEADOSREQUESTS_H_ */
