@@ -6,6 +6,7 @@
  */
 
 #include "AlquilerDeJuegosRequests.h"
+
 ///////////////////////////////////////Clientes////////////////////////////////////////
 int startClient(Client clientes[],int length)
 {
@@ -32,7 +33,7 @@ int addClient(Client clientes[], int length)
 			printf("Ingrese apellido:\n");
 			getStringNames(clientes[i].clientLastName);
 			FLUSH;
-			printf("Ingrese genero (1 M 2 F):\n");
+			printf("Ingrese genero (1 M 2 F 3 Others):\n");
 			getInt(&clientes[i].clientGender);
 			FLUSH;
 			printf("Ingrese número de teléfono sin símbolos:\n");
@@ -156,7 +157,7 @@ int printGame(Game juegos[], int length)
 		if(juegos[i].isEmpty==0)
 		{
 			printf("Nombre: %s \n",juegos[i].gameName);
-			printf("Apellido: %s \n",juegos[i].gameDesc);
+			printf("Descripcion de juego: %s \n",juegos[i].gameDesc);
 			printf("Precio: %f \n", juegos[i].gamePrice);
 			printf("Categoría: %d \n", juegos[i].gameCategory);
 			printf("ID de juego: %d \n", juegos[i].gameID);
@@ -173,5 +174,89 @@ int findGameById(Game juegos[], int length,int idSearch)
 	juegos[idSearch];
 	printf("\nLa ID buscada corresponde a:\n");
 	printGame(juegos,length);
+	return 0;
+}
+///////////////////////////////////////Alquileres/////////////////////////////////////////
+
+int startRental(Rental alquileres[],int length)
+{
+	if(alquileres!=NULL)
+	{
+		for(int i=0; i < length;i++)
+			{
+				alquileres[i].isEmpty=1;
+			}
+
+	}
+	return 0;
+}
+
+int addRental(Rental alquileres[], int length, Game juegos[], Client clientes[])
+{
+	for(int i = 0; i<length ; i++ )
+	{
+		if(alquileres[i].isEmpty == 1)
+		{
+			alquileres[i].rentalID = i;
+			alquileres[i].gameID = juegos[i].gameID;
+			alquileres[i].clientID = clientes[i].clientID;
+			printf("Ingrese día: \n");
+			getInt(&alquileres[i].dateDay);
+			FLUSH;
+			printf("Ingrese mes: \n");
+			getInt(&alquileres[i].dateMonth);
+			FLUSH;
+			printf("Ingrese año: \n");
+			getInt(&alquileres[i].dateYear);
+			FLUSH;
+			alquileres[i].isEmpty=0;
+			break;
+		}
+	}
+
+	return 0;
+}
+
+int modRental(Rental alquileres[],int length, int idSearch, Game juegos[], Client clientes[])
+{
+	printf("\n Introduzca ID de alquiler a modificar\n");
+	getInt(&idSearch);
+	alquileres[idSearch].isEmpty=1;
+	addRental(alquileres,length,juegos,clientes);
+	return 0;
+}
+
+int removeRental(Rental alquileres[], int length,int idSearch)
+{
+	printf("\n Introduzca ID de alquiler a dar de baja \n");
+	getInt(&idSearch);
+	alquileres[idSearch].isEmpty=1;
+	return 0;
+}
+
+int printRental(Rental alquileres[], int length)
+{
+	for(int i = 0; i<length ; i++ )
+	{
+		if(alquileres[i].isEmpty==0)
+		{
+			printf("ID renta: %d \n",alquileres[i].rentalID);
+			printf("ID juego rentado: %d \n",alquileres[i].gameID);
+			printf("ID cliente juego rentado: %d \n",alquileres[i].clientID);
+			printf("Fecha: %d del %d de %d \n", alquileres[i].dateDay,alquileres[i].dateMonth,alquileres[i].dateYear);
+
+		}
+	}
+
+	return 0;
+}
+
+int findRentalById(Rental alquileres[], int length,int idSearch)
+{
+	printf("\n Introduzca ID de juego a localizar \n");
+	getInt(&idSearch);
+	alquileres[idSearch];
+	printf("\nLa ID buscada corresponde a:\n");
+	printGame(alquileres,length);
 	return 0;
 }
