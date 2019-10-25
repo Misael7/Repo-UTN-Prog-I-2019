@@ -18,6 +18,7 @@ int main(void)
  FILE *pFile;
  int r;
  sCliente* listaClientes[50];
+ for (int i = 0; i <50; i++){listaClientes[i]=NULL;}
  int posicion=0;
  char var1[32];
  char var2[32];
