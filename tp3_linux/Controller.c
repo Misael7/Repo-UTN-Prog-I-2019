@@ -117,6 +117,25 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 {
+	FILE *pFile;
+	Employee* empleado;
+	int cant=0;
+	int longo = ll_len(pArrayListEmployee);
+	if((pFile=fopen("data.csv","w"))==NULL) //Se abre en modo escritura
+	{
+	printf("\nEl archivo no puede ser abierto");
+	exit (1);
+	}
+	cant=fwrite ( empleado , sizeof ( Employee ) , longo , pFile); //Se escribe al archivo
+	if (cant<longo)
+	{
+		printf("\nError al escribir el archivo");
+	}
+	else
+	{
+		printf("\nSe escribieron %d caracteres", cant);
+	}
+	fclose(pFile);
     return 1;
 }
 

@@ -47,7 +47,9 @@ int main()
 
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
-    	printf("Ingrese opcion");
+    	printf("1. Cargar los datos de los empleados desde el archivo data.csv (modo texto)\n");
+    	printf("6. Listar empleados\n");
+    	printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
     	scanf("%d",&option);
         switch(option)
         {
@@ -55,9 +57,12 @@ int main()
                 controller_loadFromText("data.csv",listaEmpleados);
                 break;
 
-            case 2:
+            case 6:
             	controller_ListEmployee(listaEmpleados);
             	break;
+
+            case 8:
+            	controller_saveAsText("data.csv",listaEmpleados);
         }
     }while(option != 10);
     return 0;

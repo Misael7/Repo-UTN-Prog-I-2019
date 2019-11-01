@@ -74,7 +74,7 @@ int employee_getId(Employee* this,int* id)
 	return retorno;
 }
 
-static int isValidId(int *id)
+/*static int isValidId(int *id)
 {
 	int retorno = EXIT_FAILURE;
 
@@ -86,7 +86,7 @@ static int isValidId(int *id)
 		}
 	}
 	return retorno;
-}
+}*/
 
 //Employee Nombre Getter Setter
 
