@@ -86,6 +86,13 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
+	printf("%d",ll_len(pArrayListEmployee));
+	for(int i =0 ; i <ll_len(pArrayListEmployee); i++)
+	{
+	Employee* empleado;
+	empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
+	printf("ID Empleado %d\nNombre Empleado  %c\nHoras Trabajadas %d\nSueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
+	}
     return 1;
 }
 

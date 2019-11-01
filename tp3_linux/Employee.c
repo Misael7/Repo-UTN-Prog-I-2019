@@ -6,15 +6,25 @@
 #include "Employee.h"
 
 
+void employee_delete()
+{
+	void free(void*);
+}
+
 Employee* employee_new()
 {
 	return malloc(sizeof(Employee));
 }
 
-Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldo)
+Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr)
 {
 	Employee *retorno = NULL;
 	Employee *this;
+	int id = atoi(idStr);
+	char nombre[128];
+	strcpy(nombre,nombreStr);
+	int horasTrabajadas = atoi(horasTrabajadasStr);
+	int sueldo = atoi(sueldoStr);
 	this = employee_new();
 
 	if(this != NULL)
@@ -22,12 +32,14 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 		if(		employee_setId(this,id) == EXIT_SUCCESS &&
 				employee_setNombre(this,nombre) == EXIT_SUCCESS &&
 				employee_setHorasTrabajadas(this,horasTrabajadas) == EXIT_SUCCESS &&
-				employee_setSueldo(this,sueldo) == EXIT_SUCCESS &&)
+				employee_setSueldo(this,sueldo) == EXIT_SUCCESS)
 		{
+
 				retorno = this;
 		}
 		else
 		{
+
 			employee_delete(this);
 		}
 	}
@@ -40,7 +52,7 @@ int employee_setId(Employee* this,int id)
 {
 	int retorno = EXIT_FAILURE;
 
-		if(this != NULL && isValidId(&id))
+		if(this != NULL)
 		{
 			this->id=id;
 			retorno = EXIT_SUCCESS;

@@ -47,6 +47,7 @@ int main()
 
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
+    	printf("Ingrese opcion");
     	scanf("%d",&option);
         switch(option)
         {
@@ -55,7 +56,7 @@ int main()
                 break;
 
             case 2:
-
+            	controller_ListEmployee(listaEmpleados);
             	break;
         }
     }while(option != 10);

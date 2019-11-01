@@ -29,11 +29,12 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 					 Employee* empleado = employee_newParametros(var1,var2,var3,var4);
 					 if(empleado!=NULL)
 					 {
-						 listaEmpleados[pos] = empleado;
-						 pos++;
-						 if(pos>=1000){break;}
-					 }
+						 //listaEmpleados = empleado;
+						 //pos++;
+						 //if(pos>=1000){break;}
+						 ll_add(pArrayListEmployee,empleado); // Equivalente a array[pos]=empleado
 
+					 }
 
 
 
