@@ -91,7 +91,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 	{
 	Employee* empleado;
 	empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
-	printf("ID Empleado %d\nNombre Empleado  %c\nHoras Trabajadas %d\nSueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
+	printf("ID Empleado %d\nNombre Empleado  %s\nHoras Trabajadas %d\nSueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
 	}
     return 1;
 }
