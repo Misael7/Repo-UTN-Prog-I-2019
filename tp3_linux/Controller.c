@@ -37,6 +37,18 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
+	FILE* pFile;
+		pFile = fopen("data.csv","rb");
+			if(pFile == NULL)
+			{
+					printf("El archivo no existe");
+					exit(EXIT_FAILURE);
+			}
+			else
+			{
+				parser_EmployeeFromText(pFile, pArrayListEmployee);
+			}
+			fclose(pFile);
 
 	return 1;
 }
@@ -183,7 +195,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 	printf("\nEl archivo no puede ser abierto");
 	exit (1);
 	}
-	cant=fwrite ( empleado , sizeof ( Employee ) , longo , pFile); //Se escribe al archivo
+	cant=fwrite (empleado, sizeof(Employee) ,longo,pFile); //Se escribe al archivo
 	if (cant<longo)
 	{
 		printf("\nError al escribir el archivo");
@@ -205,6 +217,25 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
+	FILE *pFile;
+	Employee* empleado;
+	int cant=0;
+	int longo = ll_len(pArrayListEmployee);
+	if((pFile=fopen("data.csv","wb"))==NULL) //Se abre en modo escritura
+	{
+		printf("\nEl archivo no puede ser abierto");
+		exit (1);
+	}
+	cant=fwrite (empleado, sizeof(Employee) ,longo,pFile); //Se escribe al archivo
+	if (cant<longo)
+	{
+			printf("\nError al escribir el archivo");
+	}
+	else
+	{
+			printf("\nSe escribieron %d caracteres", cant);
+	}
+	fclose(pFile);
     return 1;
 }
 
