@@ -4,6 +4,8 @@
 #include <string.h>
 #include "LinkedList.h"
 #include "Employee.h"
+#include "handyFunctions.h"
+
 
 
 void employee_delete()
@@ -172,3 +174,9 @@ int employee_getSueldo(Employee* this,int* sueldo)
 	return retorno;
 }
 
+int employeeSortCondition(void* arg1 , void* arg2)
+{
+	Employee * pE1 = (Employee*) arg1;
+	Employee * pE2 = (Employee*) arg2;
+	return strcmp (pE1->nombre , pE2->nombre);
+}
