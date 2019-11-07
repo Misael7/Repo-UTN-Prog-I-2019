@@ -62,27 +62,31 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-	printf("Ingreso 0");
+
+	printf("Ingreso 0\n");
+	int max = maxId(pArrayListEmployee,max);
 	Employee* this=NULL;
-	printf("Ingreso 1");
-	this = (Employee*)malloc(sizeof(Employee*));
-	char strId[50];
+	printf("Ingreso 1\n");
+	this = /*(Employee*)malloc(sizeof(Employee*));*/ employee_new();
+	int id=0;
 	char nombreStr[50];
-	char horasTrabajadasStr[50];
-	char sueldoStr[50];
-	printf("Ingreso 2");
+	int horasTrabajadas=0;
+	int sueldo=0;
+	printf("Ingreso 2\n");
+
 	if(this!=NULL)
 	{
-		strcpy(strId,atoi(ll_len(pArrayListEmployee)));
+		printf("Ingreso 3 \n");
+		this->id = max+1;
 		printf("Ingrese Nombre: \n");
-		getStringNames(nombreStr);
+		scanf("%s",this->nombre);
 		printf("Ingrese Horas Trabajadas: \n");
-		getString(horasTrabajadasStr);
+		scanf("%d",&this->horasTrabajadas);
+
 		printf("Ingrese Sueldo: \n");
-		getString(sueldoStr);
+		scanf("%d",&this->sueldo);
 
-
-		this = employee_newParametros(strId, nombreStr,horasTrabajadasStr,sueldoStr);
+		/*this = employee_newParametros(strId, nombreStr,horasTrabajadasStr,sueldoStr);*/
 
 		ll_add(pArrayListEmployee, this);
 	}
@@ -134,12 +138,11 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
-	printf("%d",ll_len(pArrayListEmployee));
 	for(int i =0 ; i <ll_len(pArrayListEmployee); i++)
 	{
 	Employee* empleado;
 	empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
-	printf("ID Empleado %d\nNombre Empleado  %s\nHoras Trabajadas %d\nSueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
+	printf("\nID Empleado %d\nNombre Empleado  %s\nHoras Trabajadas %d\nSueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
 	}
     return 1;
 }
@@ -153,9 +156,9 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
-	Employee* arg1;
-	Employee* arg2;
-	ll_sort(pArrayListEmployee,employeeSortCondition(*arg1 ,* arg2),0);
+
+	ll_sort(pArrayListEmployee,employeeSortCondition,0);
+
     return 1;
 }
 

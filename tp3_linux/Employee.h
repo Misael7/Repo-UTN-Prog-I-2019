@@ -27,4 +27,6 @@ int employee_getSueldo(Employee* this,int* sueldo);
 //Verificaciones
 static int isValidId(int *id);
 
+int maxId(LinkedList* pArrayListEmployee, int max);
+int employeeSortCondition(void* arg1 , void* arg2);
 #endif // employee_H_INCLUDED

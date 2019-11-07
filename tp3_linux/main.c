@@ -80,7 +80,7 @@ int main()
             	break;
 
             case 3:
-            	printf("Entro case");
+            	printf("Entro case\n");
             	controller_addEmployee(listaEmpleados);
             	break;
 
