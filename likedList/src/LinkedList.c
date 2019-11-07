@@ -65,17 +65,20 @@ static Node* getNode(LinkedList* this, int nodeIndex)
 	if(this!=NULL)
 	{
 		Node* nodoAux=this->pFirstNode;
-		if(nodeIndex < 0 || nodeIndex > length)
+		if(nodeIndex < 0 || nodeIndex >= length)
 		{
 			return NULL;
 		}
 
 
-		for(int i = 0 ; i-1 < nodeIndex ; i++ )
+		for(int i = 0 ; i <= nodeIndex ; i++ )
 		{
 			if(nodoAux->pNextNode != NULL)
 			{
-				nodoAux = nodoAux->pNextNode;
+				if(i!=nodeIndex)
+				{
+					nodoAux = nodoAux->pNextNode;
+				}
 			}
 		}
 
