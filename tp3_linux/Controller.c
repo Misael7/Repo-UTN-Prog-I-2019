@@ -133,12 +133,23 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
-	int index;
-	printf("Introducir núm de empleado a eliminar");
-	scanf("%d",index);
-	ll_get(pArrayListEmployee, index);
-	ll_remove(pArrayListEmployee,index);
-    return 1;
+	int index=0;
+		Employee* this;
+		printf("Introducir ID de empleado \n");
+		FLUSH;
+		scanf("%d",&index);
+		FLUSH;
+
+		for(int i =0 ; i <ll_len(pArrayListEmployee); i++)
+		{
+			this=ll_get(pArrayListEmployee, i);
+			if(index == this->id)
+			{
+				ll_remove(pArrayListEmployee,i);
+				break;
+			}
+		}
+	    return 1;
 }
 
 /** \brief Listar empleados
