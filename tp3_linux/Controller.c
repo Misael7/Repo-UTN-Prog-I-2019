@@ -62,50 +62,32 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-	Employee* this;
-	Employee* retorno = NULL;
-	int id=0;
-	char nombre[128];
-	int horasTrabajadas=0;
-	int sueldo=0;
-	id= ll_len(pArrayListEmployee);
-	printf("Ing. Nom: \n");
-	getStringNames(nombre);
-	printf("Ing. Hor. Tr: \n");
-	getInt(&horasTrabajadas);
-	FLUSH;
-	printf("Ing. Sueldo: \n");
-	getInt(&sueldo);
-	FLUSH;
-	printf("ID: %d\nNombre: %s \nHoras Tr: %d \nSueldo: %d \n", id , nombre , horasTrabajadas , sueldo);
+	printf("Ingreso 0");
+	Employee* this=NULL;
+	printf("Ingreso 1");
+	this = (Employee*)malloc(sizeof(Employee*));
+	char strId[50];
+	char nombreStr[50];
+	char horasTrabajadasStr[50];
+	char sueldoStr[50];
+	printf("Ingreso 2");
+	if(this!=NULL)
+	{
+		strcpy(strId,atoi(ll_len(pArrayListEmployee)));
+		printf("Ingrese Nombre: \n");
+		getStringNames(nombreStr);
+		printf("Ingrese Horas Trabajadas: \n");
+		getString(horasTrabajadasStr);
+		printf("Ingrese Sueldo: \n");
+		getString(sueldoStr);
 
-	// No sé por qué verga crashea acá
 
-	/*employee_setId(this, id);
-	employee_setNombre(this,nombre);
-	employee_setHorasTrabajadas(this,horasTrabajadas);
-	employee_setSueldo(this,sueldo);*/
+		this = employee_newParametros(strId, nombreStr,horasTrabajadasStr,sueldoStr);
 
-	if(this != NULL)
-		{
-			if(		employee_setId(this,id) == EXIT_SUCCESS &&
-					employee_setNombre(this,nombre) == EXIT_SUCCESS &&
-					employee_setHorasTrabajadas(this,horasTrabajadas) == EXIT_SUCCESS &&
-					employee_setSueldo(this,sueldo) == EXIT_SUCCESS)
-			{
+		ll_add(pArrayListEmployee, this);
+	}
 
-					retorno = this;
-			}
-			else
-			{
-
-				employee_delete(this);
-			}
-		}
-
-	ll_add(pArrayListEmployee, this);
-
-    return retorno;
+	return this;
 }
 
 /** \brief Modificar datos de empleado
@@ -117,12 +99,11 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-	Employee* empleado;
 	int index;
 	printf("Introducir núm de empleado a modificar");
 	scanf("%d",index);
 	FLUSH;
-	ll_set(pArrayListEmployee,index,empleado);
+	ll_get(pArrayListEmployee, index);
 	controller_addEmployee(pArrayListEmployee);
     return 1;
 }
@@ -139,6 +120,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 	int index;
 	printf("Introducir núm de empleado a eliminar");
 	scanf("%d",index);
+	ll_get(pArrayListEmployee, index);
 	ll_remove(pArrayListEmployee,index);
     return 1;
 }

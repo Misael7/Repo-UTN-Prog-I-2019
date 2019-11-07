@@ -80,6 +80,7 @@ int main()
             	break;
 
             case 3:
+            	printf("Entro case");
             	controller_addEmployee(listaEmpleados);
             	break;
 
@@ -90,6 +91,7 @@ int main()
             case 5:
             	controller_removeEmployee(listaEmpleados);
             	break;
+
             case 7:
             	controller_sortEmployee(listaEmpleados);
             	break;
