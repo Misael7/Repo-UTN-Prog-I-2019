@@ -191,30 +191,22 @@ int employeeSortCondition(void* arg1 , void* arg2)
 
 int maxId(LinkedList* pArrayListEmployee, int max)
 {
-	printf("Max 1\n");
 	max=0;
 	int flag = 0;
 	Employee * this;
-	printf("%d\n",ll_len(pArrayListEmployee));
-	printf("Max 2 %d\n",&this->id);
-	printf("%d\n",ll_len(pArrayListEmployee));
 	for(int i =0 ; i <ll_len(pArrayListEmployee); i++)
 	{
-		printf("Max 3\n");
 		this=ll_get(pArrayListEmployee, i);
-		printf("Max 4 %d \n");
 		if(flag==0)
-		{	printf("Max 5 %d\n",&max);
+		{
 			max = this->id;
-			printf("Max afterload %d \n",&max);
+
 			flag = 1;
 		}
-		printf("Max 6\n");
 		if(this->id > max)
-		{printf("Max 7\n");
+		{
 			max = this->id;
 		}
 	}
-	printf("Max 8\n");
 	return max;
 }

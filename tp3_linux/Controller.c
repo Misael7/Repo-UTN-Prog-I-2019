@@ -82,11 +82,8 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
 		scanf("%s",this->nombre);
 		printf("Ingrese Horas Trabajadas: \n");
 		scanf("%d",&this->horasTrabajadas);
-
 		printf("Ingrese Sueldo: \n");
 		scanf("%d",&this->sueldo);
-
-		/*this = employee_newParametros(strId, nombreStr,horasTrabajadasStr,sueldoStr);*/
 
 		ll_add(pArrayListEmployee, this);
 	}
@@ -103,12 +100,27 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
-	int index;
-	printf("Introducir núm de empleado a modificar");
-	scanf("%d",index);
+	int index=0;
+	Employee* this;
+	printf("Introducir ID de empleado \n");
 	FLUSH;
-	ll_get(pArrayListEmployee, index);
-	controller_addEmployee(pArrayListEmployee);
+	scanf("%d",&index);
+	FLUSH;
+
+	for(int i =0 ; i <ll_len(pArrayListEmployee); i++)
+	{
+		this=ll_get(pArrayListEmployee, i);
+		if(index == this->id)
+		{
+			printf("Ingrese Nombre: \n");
+			scanf("%s",this->nombre);
+			printf("Ingrese Horas Trabajadas: \n");
+			scanf("%d",&this->horasTrabajadas);
+			printf("Ingrese Sueldo: \n");
+			scanf("%d",&this->sueldo);
+			break;
+		}
+	}
     return 1;
 }
 
