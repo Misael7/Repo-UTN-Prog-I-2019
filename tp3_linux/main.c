@@ -72,12 +72,16 @@ int main()
             case 6:
             	controller_ListEmployee(listaEmpleados);
             	break;
+            case 11:
+                        	controller_ListEmployee(listaEmpleadosBin);
+                        	break;
 
             case 8:
             	controller_saveAsText("data.csv",listaEmpleados);
             	break;
+
             case 9:
-            	controller_saveAsBinary("data.bin",listaEmpleados);
+            	controller_saveAsBinary("data.bin",listaEmpleadosBin);
             	break;
 
             case 3:

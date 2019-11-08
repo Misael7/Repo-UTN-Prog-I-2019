@@ -14,7 +14,7 @@
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
 	FILE* pFile;
-	pFile = fopen("data.csv","r");
+	pFile = fopen(path,"r");
 		if(pFile == NULL)
 		{
 				printf("El archivo no existe");
@@ -38,7 +38,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
 	FILE* pFile;
-		pFile = fopen("data.csv","rb");
+		pFile = fopen(path,"rb");
 			if(pFile == NULL)
 			{
 					printf("El archivo no existe");
@@ -200,7 +200,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 	FILE *pFile;
 	Employee* empleado;
 	int length = ll_len(pArrayListEmployee);
-	pFile=fopen("data.csv","w");
+	pFile=fopen(/*"data.csv"*/path,"w");
 	if(pFile==NULL)
 	{
 	printf("\nEl archivo no puede ser abierto");
@@ -235,7 +235,7 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 	FILE *pFile;
 	Employee* empleado;
 	int length = ll_len(pArrayListEmployee);
-	pFile=fopen("data.csv","w");
+	pFile=fopen(path,"wb");
 	if(pFile==NULL)
 	{
 		printf("\nEl archivo no puede ser abierto");
@@ -243,15 +243,15 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 	}
 	for(int i=0 ; i <length; i++)
 	{
-			empleado=ll_get(pArrayListEmployee, i);
+			/*empleado=ll_get(pArrayListEmployee, i);
 			printf(
 							"\nID Empleado %d\n"
 							"Nombre Empleado  %s\n"
 							"Horas Trabajadas %d\n"
 							"Sueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
-			empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
-			fprintf(pFile,"%d , %s , %d , %d \n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
-		}//get_blabla(empleado/this, id)
+			*/empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
+			fwrite(empleado,sizeof(Employee),1,pFile);
+		}
 
 		fclose(pFile);
 	    return 1;
