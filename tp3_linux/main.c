@@ -54,7 +54,7 @@ int main()
     	printf("4. Modificar datos de empleado\n");
     	printf("5. Baja de empleado\n");
     	printf("6. Listar empleados\n");
-    	printf("11. Listar empleados BIN\n");
+
     	printf("7. Ordenar empleados\n");
     	printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
     	printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
@@ -74,21 +74,16 @@ int main()
             case 6:
             	controller_ListEmployee(listaEmpleados);
             	break;
-            case 11:
-                controller_ListEmployee(listaEmpleados);
-                break;
 
             case 8:
             	controller_saveAsText("data.csv",listaEmpleados);
             	break;
 
             case 9:
-            	printf("Entro case 9 \n");
             	controller_saveAsBinary("data.bin",listaEmpleados);
             	break;
 
             case 3:
-            	printf("Entro case\n");
             	controller_addEmployee(listaEmpleados);
             	break;
 
