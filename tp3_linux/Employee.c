@@ -174,7 +174,7 @@ int employee_getSueldo(Employee* this,int* sueldo)
 	return retorno;
 }
 
-int employeeSortCondition(void* arg1 , void* arg2)
+int employeeSortCondition(void* arg1 , void* arg2) //Uso para settear condicional de la funcion sort
 {
 	Employee * pE1 = (Employee*) arg1;
 	Employee * pE2 = (Employee*) arg2;
@@ -189,7 +189,7 @@ int employeeSortCondition(void* arg1 , void* arg2)
 	return 0;
 }
 
-int maxId(LinkedList* pArrayListEmployee, int max)
+int maxId(LinkedList* pArrayListEmployee, int max) //La uso para retornar una variable con el ID más alto para asignarle el valor +1 al proximo employee.id
 {
 	max=0;
 	int flag = 0;

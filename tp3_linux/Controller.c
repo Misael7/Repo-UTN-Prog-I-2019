@@ -200,6 +200,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 	FILE *pFile;
 	Employee* empleado;
 	int length = ll_len(pArrayListEmployee);
+	printf("Entro a binsave %d \n",length);
 	pFile=fopen(/*"data.csv"*/path,"w");
 	if(pFile==NULL)
 	{
@@ -210,12 +211,12 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 
 	{
 		empleado=ll_get(pArrayListEmployee, i);
-		printf(
+		/*printf(
 						"\nID Empleado %d\n"
 						"Nombre Empleado  %s\n"
 						"Horas Trabajadas %d\n"
 						"Sueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
-		empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
+		*/empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
 		fprintf(pFile,"%d , %s , %d , %d \n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
 	}//get_blabla(empleado/this, id)
 
@@ -236,6 +237,7 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 	Employee* empleado;
 	int length = ll_len(pArrayListEmployee);
 	pFile=fopen(path,"wb");
+	printf("Entro a binsave %d \n",length);
 	if(pFile==NULL)
 	{
 		printf("\nEl archivo no puede ser abierto");
@@ -243,15 +245,11 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 	}
 	for(int i=0 ; i <length; i++)
 	{
-			/*empleado=ll_get(pArrayListEmployee, i);
-			printf(
-							"\nID Empleado %d\n"
-							"Nombre Empleado  %s\n"
-							"Horas Trabajadas %d\n"
-							"Sueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
-			*/empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
+			printf("Entro a for binsave\n");
+			empleado=ll_get(pArrayListEmployee, i);
+			printf("%d \n",empleado->id);
 			fwrite(empleado,sizeof(Employee),1,pFile);
-		}
+	}
 
 		fclose(pFile);
 	    return 1;

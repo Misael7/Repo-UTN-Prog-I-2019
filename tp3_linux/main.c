@@ -3,6 +3,7 @@
 #include "LinkedList.h"
 #include "Controller.h"
 #include "Employee.h"
+#include "handyFunctions.h"
 
 /****************************************************
     Menu:
@@ -46,7 +47,6 @@ int main()
     int option = 0;
 
     LinkedList* listaEmpleados = ll_newLinkedList();
-    LinkedList* listaEmpleadosBin = ll_newLinkedList();
     do{
     	printf("1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).\n");
     	printf("2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).\n");
@@ -54,10 +54,12 @@ int main()
     	printf("4. Modificar datos de empleado\n");
     	printf("5. Baja de empleado\n");
     	printf("6. Listar empleados\n");
+    	printf("11. Listar empleados BIN\n");
     	printf("7. Ordenar empleados\n");
     	printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
     	printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
     	printf("10. EXIT.\n");
+    	FLUSH;
     	scanf("%d",&option);
         switch(option)
         {
@@ -66,22 +68,23 @@ int main()
                 break;
 
             case 2:
-            	controller_loadFromBinary("data.bin",listaEmpleadosBin);
+            	controller_loadFromBinary("data.bin",listaEmpleados);
             	break;
 
             case 6:
             	controller_ListEmployee(listaEmpleados);
             	break;
             case 11:
-                        	controller_ListEmployee(listaEmpleadosBin);
-                        	break;
+                controller_ListEmployee(listaEmpleados);
+                break;
 
             case 8:
             	controller_saveAsText("data.csv",listaEmpleados);
             	break;
 
             case 9:
-            	controller_saveAsBinary("data.bin",listaEmpleadosBin);
+            	printf("Entro case 9 \n");
+            	controller_saveAsBinary("data.bin",listaEmpleados);
             	break;
 
             case 3:
