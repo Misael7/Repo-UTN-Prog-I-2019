@@ -46,7 +46,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 			}
 			else
 			{
-				parser_EmployeeFromText(pFile, pArrayListEmployee);
+				parser_EmployeeFromBinary(pFile, pArrayListEmployee);
 			}
 			fclose(pFile);
 
@@ -234,23 +234,26 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
 	FILE *pFile;
 	Employee* empleado;
-	int cant=0;
-	int longo = ll_len(pArrayListEmployee);
-	if((pFile=fopen("data.csv","wb"))==NULL) //Se abre en modo escritura
+	int length = ll_len(pArrayListEmployee);
+	pFile=fopen("data.csv","w");
+	if(pFile==NULL)
 	{
 		printf("\nEl archivo no puede ser abierto");
 		exit (1);
 	}
-	cant=fwrite (empleado, sizeof(Employee) ,longo,pFile); //Se escribe al archivo
-	if (cant<longo)
+	for(int i=0 ; i <length; i++)
 	{
-			printf("\nError al escribir el archivo");
-	}
-	else
-	{
-			printf("\nSe escribieron %d caracteres", cant);
-	}
-	fclose(pFile);
-    return 1;
+			empleado=ll_get(pArrayListEmployee, i);
+			printf(
+							"\nID Empleado %d\n"
+							"Nombre Empleado  %s\n"
+							"Horas Trabajadas %d\n"
+							"Sueldo %d\n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
+			empleado=ll_get(pArrayListEmployee, i); // equivalente empleado = array[i]
+			fprintf(pFile,"%d , %s , %d , %d \n", empleado->id , empleado->nombre , empleado->horasTrabajadas , empleado->sueldo);
+		}//get_blabla(empleado/this, id)
+
+		fclose(pFile);
+	    return 1;
 }
 
