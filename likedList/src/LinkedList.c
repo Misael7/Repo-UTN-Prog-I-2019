@@ -379,7 +379,17 @@ int ll_indexOf(LinkedList* this, void* pElement)
 int ll_isEmpty(LinkedList* this)
 {
     int returnAux = -1;
-
+    if(this!=NULL)
+    {
+		if(this->pFirstNode!=NULL)
+		{
+			returnAux = 0;
+		}
+		if(this->pFirstNode==NULL)
+		{
+			returnAux = 1;
+		}
+    }
     return returnAux;
 }
 
