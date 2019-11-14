@@ -301,6 +301,17 @@ int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
 
+    if(this !=NULL)
+    {
+    	this->pFirstNode=NULL;
+    	this->size=0;
+    	returnAux=0;
+    }
+    else
+    {
+    	returnAux = -1;
+    }
+
     return returnAux;
 }
 
