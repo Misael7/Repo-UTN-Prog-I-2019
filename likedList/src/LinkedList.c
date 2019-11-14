@@ -446,7 +446,24 @@ void* ll_pop(LinkedList* this,int index)
 int ll_contains(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
-
+    int length = ll_len(this);
+    if(this!=NULL && length >=0)
+    {
+    	Node* auxNode=this->pFirstNode; //Asigna valor del primer nodo al auxNode.
+    	for(int i = 0 ; i < length ; i++)
+    	{
+    		if(auxNode->pElement == pElement)
+    		{
+    			returnAux=1;
+    			break;
+    		}
+    		auxNode=auxNode->pNextNode;
+    	}
+    	if(returnAux!=1)
+    	{
+    		return 0;
+    	}
+    }
     return returnAux;
 }
 
