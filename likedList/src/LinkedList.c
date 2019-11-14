@@ -405,7 +405,10 @@ int ll_isEmpty(LinkedList* this)
 int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
-
+    if (this!=NULL && index>=0)
+    {
+    	returnAux=addNode(this, index, pElement);
+    }
     return returnAux;
 }
 
