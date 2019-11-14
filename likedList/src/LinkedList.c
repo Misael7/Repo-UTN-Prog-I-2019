@@ -274,7 +274,7 @@ int ll_remove(LinkedList* this,int index)
 	{
 		auxNodeNext = getNode(this, index);
 		auxNode = getNode(this,index-1);
-		auxNode->pNextNode = auxNodeNext->pNextNode;
+		auxNode->pNextNode = auxNodeNext->pNextNode; //encaja puntero de nodo next en nodo anterior.
 		auxNodeNext->pNextNode = NULL;
 		/*if(ll_get(this, index)==NULL)
 		{*/
