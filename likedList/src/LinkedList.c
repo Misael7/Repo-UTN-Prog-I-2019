@@ -27,7 +27,7 @@ LinkedList* ll_newLinkedList(void)
     {
 		this->pFirstNode=NULL;
 		this->size=0;
-		/*this->pFirstNode->pElement=NULL;
+		/*
 		this->pFirstNode->pNextNode=NULL;*/
     }
     return this;
@@ -62,29 +62,34 @@ int ll_len(LinkedList* this)
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
 	int length = ll_len(this);
-	if(this!=NULL)
-	{
-		Node* nodoAux=this->pFirstNode;
-		if(nodeIndex < 0 || nodeIndex >= length)
+		if(this!=NULL)
 		{
-			return NULL;
-		}
-
-
-		for(int i = 0 ; i <= nodeIndex ; i++ )
-		{
-			if(nodoAux->pNextNode != NULL)
+			Node* nodoAux=this->pFirstNode;
+			if(nodeIndex < 0 || nodeIndex >= length)
 			{
-				if(i!=nodeIndex)
+				return NULL;
+			}
+
+
+			for(int i = 0 ; i <= nodeIndex ; i++ )
+			{
+				if(nodoAux->pNextNode != NULL)
 				{
-					nodoAux = nodoAux->pNextNode;
+					if(i!=nodeIndex)
+					{
+						nodoAux = nodoAux->pNextNode;
+					}
+
+				}
+				if(nodeIndex == 0)
+				{
+					nodoAux = this->pFirstNode;
 				}
 			}
-		}
 
-		return nodoAux;
-	}
-	return NULL;
+			return nodoAux;
+		}
+		return NULL;
 }
 
 /** \brief  Permite realizar el test de la funcion getNode la cual es privada
@@ -113,8 +118,38 @@ Node* test_getNode(LinkedList* this, int nodeIndex)
  */
 static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 {
-    int returnAux = -1;
+	int length = ll_len(this);
+	int returnAux = -1;
+	Node* auxNode;
+	auxNode = (Node*)malloc(sizeof(Node*));
+	Node* auxNodeNext;
+
+		if(this!=NULL && nodeIndex >= 0 && nodeIndex <= length && auxNode!=NULL)
+		{
+
+				if(this->pFirstNode==NULL  && nodeIndex==0)
+				{
+					this->size=length+1;
+					auxNode->pElement= pElement;
+					auxNode->pNextNode=NULL;
+					this->pFirstNode=auxNode;
+					returnAux=0;
+
+				}
+				if(this->pFirstNode!=NULL)
+				{
+					this->size=length+1;
+					auxNodeNext = getNode(this, nodeIndex);
+					auxNodeNext->pNextNode=auxNode;
+					auxNode->pElement=pElement;
+					auxNode->pNextNode=NULL;
+					returnAux=0;
+				}
+			}
+
+
     return returnAux;
+
 }
 
 /** \brief Permite realizar el test de la funcion addNode la cual es privada
