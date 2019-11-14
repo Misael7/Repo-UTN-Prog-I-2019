@@ -424,6 +424,12 @@ int ll_push(LinkedList* this, int index, void* pElement)
 void* ll_pop(LinkedList* this,int index)
 {
     void* returnAux = NULL;
+    int length = ll_len(this);
+    if(this!=NULL && index >= 0 && index < length)
+    {
+    	returnAux = ll_get(this,index);
+    	ll_remove(this, index);
+    }
 
     return returnAux;
 }
