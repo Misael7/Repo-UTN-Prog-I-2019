@@ -207,8 +207,8 @@ void* ll_get(LinkedList* this, int index)
     Node* auxNode;
     if(this!=NULL && index >= 0 && index < length)
     {
-    auxNode = getNode(this,index);
-    returnAux=auxNode->pElement;
+		auxNode = getNode(this,index);
+		returnAux=auxNode->pElement; //retorna el elemento del nodo, a diferencia de getNode que retorna el Nodo entero.
     }
     return returnAux;
 }
@@ -226,6 +226,17 @@ void* ll_get(LinkedList* this, int index)
 int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
+    Node* auxNode;
+    int length = ll_len(this);
+    if(this!=NULL && index >= 0 && index < length)
+    {
+    	auxNode = getNode(this,index);
+    	if(auxNode!=NULL)
+    	{
+    		auxNode->pElement=pElement;
+    		returnAux=0;
+    	}
+    }
 
     return returnAux;
 }
