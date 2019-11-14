@@ -228,12 +228,12 @@ int ll_set(LinkedList* this, int index,void* pElement)
     int returnAux = -1;
     Node* auxNode;
     int length = ll_len(this);
-    if(this!=NULL && index >= 0 && index < length)
+    if(this!=NULL && index >= 0 && index <= length)
     {
     	auxNode = getNode(this,index);
     	if(auxNode!=NULL)
     	{
-    		auxNode->pElement=pElement;
+    		auxNode->pElement=pElement; //Settea el elemento del nodo, sin modificar el resto
     		returnAux=0;
     	}
     }
@@ -252,9 +252,41 @@ int ll_set(LinkedList* this, int index,void* pElement)
  */
 int ll_remove(LinkedList* this,int index)
 {
-    int returnAux = -1;
+	//Sale copypaste de addNode
+	int length = ll_len(this);
+	int returnAux = -1;
+	Node* auxNode;
+	Node* auxNodeNext;
 
-    return returnAux;
+	if(this!=NULL && index >= 0 && index < length)
+	{
+	if(index==0)
+	{
+		auxNode= getNode(this, index);
+		this->pFirstNode = auxNode->pNextNode;
+		/*if(ll_get(this, index)==NULL)
+		{*/
+			free(auxNode);
+		//}
+	}
+
+	else
+	{
+		auxNodeNext = getNode(this, index);
+		auxNode = getNode(this,index-1);
+		auxNode->pNextNode = auxNodeNext->pNextNode;
+		auxNodeNext->pNextNode = NULL;
+		/*if(ll_get(this, index)==NULL)
+		{*/
+			free(auxNodeNext);
+		//}
+
+	}
+	this->size=length-1;
+	returnAux=0;
+	}
+	return returnAux;
+
 }
 
 
