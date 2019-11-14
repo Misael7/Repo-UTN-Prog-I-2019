@@ -138,7 +138,6 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 				else
 				{
 					auxNodeNext = getNode(this, nodeIndex-1);
-					/*auxNodeNext->pNextNode=auxNode;*/
 					auxNode->pNextNode = auxNodeNext->pNextNode;
 					auxNodeNext->pNextNode = auxNode;
 					returnAux=0;
@@ -175,9 +174,21 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
  */
 int ll_add(LinkedList* this, void* pElement)
 {
-    int returnAux = -1;
+
+	int length = ll_len(this);
+	int returnAux = -1;
+	Node* auxNode;
+
+	if(this!=NULL)
+	{
+		//auxNode = (Node*)malloc(sizeof(Node*));//La función AddNode realiza el malloc para el nodo nuevo, además de aumentar el tamaño de la lista
+		auxNode = addNode(this,length, pElement);
+		returnAux=0;
+
+	}
 
     return returnAux;
+
 }
 
 /** \brief Permite realizar el test de la funcion addNode la cual es privada
