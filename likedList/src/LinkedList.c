@@ -123,7 +123,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
 	Node* auxNode;
 	Node* auxNodeNext;
 
-		if(this!=NULL && nodeIndex >= 0 && nodeIndex <= length && auxNode!=NULL)
+		if(this!=NULL && nodeIndex >= 0 && nodeIndex <= length)
 		{
 			auxNode = (Node*)malloc(sizeof(Node*));
 			this->size=length+1;
