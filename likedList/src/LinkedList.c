@@ -350,7 +350,21 @@ int ll_deleteLinkedList(LinkedList* this)
 int ll_indexOf(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    int length=ll_len(this);
 
+    if(this !=NULL)
+    {
+    	Node* auxNode=this->pFirstNode; //Asigna valor del primer nodo al auxNode.
+    	for(int i=0 ; i <length ; i++)
+    	{
+			if(auxNode->pElement==pElement)
+			{
+				return i;
+				break;
+			}
+    	auxNode = auxNode->pNextNode; //Asigna el valor del nextnode a auxNode luego de iterar comparando el elemento del actual previo al cambio
+    	}
+    }
     return returnAux;
 }
 
