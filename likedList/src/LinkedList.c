@@ -513,6 +513,10 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
     int length = ll_len(this);
     if(this!=NULL || from<0 || from>length || to <= from || to > length)
     {
+    	for(;from < to-1 ; from++)
+    	{
+
+    	}
     	if(ll_containsAll(this,cloneArray)!=1)
     	{
 
