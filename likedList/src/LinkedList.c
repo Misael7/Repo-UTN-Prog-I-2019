@@ -482,11 +482,11 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
     int length = ll_len(this2);
     if(this!=NULL && this2!=NULL)
     {
-    	Node* auxNodo = this2->pFirstNode;
+    	Node* auxNodo = this2->pFirstNode;//elementos segunda lista
     	returnAux=1;
     	for(int i=0 ; i < length ; i++)
     	{
-			if(ll_contains(this, auxNodo->pElement)!=1)
+			if(ll_contains(this, auxNodo->pElement)!=1) //Si los elementos de la segunda lista, no estan en la lista 1, retorna 0
 			{
 				returnAux= 0;
 				break;
@@ -510,7 +510,14 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
+    int length = ll_len(this);
+    if(this!=NULL || from<0 || from>length || to <= from || to > length)
+    {
+    	if(ll_containsAll(this,cloneArray)!=1)
+    	{
 
+    	}
+    }
     return cloneArray;
 }
 
