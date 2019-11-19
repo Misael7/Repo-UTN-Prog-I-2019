@@ -6,6 +6,7 @@
 
 static Node* getNode(LinkedList* this, int nodeIndex);
 static int addNode(LinkedList* this, int nodeIndex,void* pElement);
+void ll_swapper(Node *first,Node *second);
 
 /** \brief Crea un nuevo LinkedList en memoria de manera dinamica
  *
@@ -565,8 +566,46 @@ LinkedList* ll_clone(LinkedList* this)
 int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux =-1;
+    int length = ll_len(this);
+    Node* firstNode;
+    Node* secondNode;
+    int swapFlag = 0;
+    //IMPORTANTE!
+    //Se debe comentar las llamadas al ll_swapper para probar el programa, de lo contrario jamás para de ejecutarse
+    //y no devuelve el resultado de Test.
+    if(this != NULL && pFunc != NULL && length>1 && (order==1 || order==0)) //Verifica sentido ordenamiento
+    {
+    	do
+    	{
+    		for(int i = 0 ; i < length-1 ; i++)
+    		{
+    			firstNode = getNode(this, i);
+    			secondNode = getNode(this, i+1);
+    			if(order == 1 && pFunc( firstNode->pElement, secondNode->pElement)>0) //usa el valor de retorno pFunc como condicional
+    			{
+    				ll_swapper(firstNode, secondNode);
+    				swapFlag = 1;
+    			}
+    			if(order == 0 && pFunc( firstNode->pElement, secondNode->pElement)<0) //usa el valor de retorno pFunc como condicional
+    			{
+    				ll_swapper(firstNode, secondNode);
+    				swapFlag = 1;
+    			}
+
+    		}
+
+    	}while(swapFlag!=0);
+        returnAux = 0;
+    }
 
     return returnAux;
 
+}
+
+void ll_swapper(Node *first,Node *second)
+{
+    Node* auxNode = first->pElement;
+    first->pElement = second->pElement;
+    second->pElement = auxNode;
 }
 
