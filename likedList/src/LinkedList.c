@@ -511,16 +511,18 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
     int length = ll_len(this);
-    if(this!=NULL || from<0 || from>length || to <= from || to > length)
+    if(this != NULL && from >= 0 && from < length && to >= from && to <= length)
     {
-    	for(;from < to-1 ; from++)
+    	cloneArray=ll_newLinkedList(); //Asigno memoria para la nueva lista
+    	Node* auxCloneNode;
+    	for(;from < to ; from++)
     	{
-
+    		/*auxCloneNode = getNode(this, from);
+    		addNode(cloneArray, from , auxCloneNode);*/
+    		auxCloneNode = ll_get(this, from);
+    		ll_add(cloneArray,auxCloneNode);
     	}
-    	if(ll_containsAll(this,cloneArray)!=1)
-    	{
 
-    	}
     }
     return cloneArray;
 }
@@ -536,7 +538,11 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
+    int length = ll_len(this);
+    if(this != NULL)
+    {
 
+    }
     return cloneArray;
 }
 
