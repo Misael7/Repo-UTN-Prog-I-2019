@@ -517,8 +517,8 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
     	Node* auxCloneNode;
     	for(;from < to ; from++)
     	{
-    		/*auxCloneNode = getNode(this, from);
-    		addNode(cloneArray, from , auxCloneNode);*/
+    		/*auxCloneNode = getNode(this, from);  //Agarra element
+    		addNode(cloneArray, from , auxCloneNode);*/ //Mete element en la nueva lista
     		auxCloneNode = ll_get(this, from);
     		ll_add(cloneArray,auxCloneNode);
     	}
@@ -537,10 +537,18 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 */
 LinkedList* ll_clone(LinkedList* this)
 {
+	//Igual que subList pero entera.
     LinkedList* cloneArray = NULL;
     int length = ll_len(this);
     if(this != NULL)
     {
+    	cloneArray=ll_newLinkedList();
+    	Node* auxCloneNode;
+    	for(int i = 0;i < length; i++)
+    	{
+    		auxCloneNode = ll_get(this, i);
+    		ll_add(cloneArray,auxCloneNode);
+    	}
 
     }
     return cloneArray;
