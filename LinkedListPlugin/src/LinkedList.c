@@ -618,6 +618,7 @@ int ll_counter(LinkedList* this, int (*pFunc)(void*))
 {
 	int returnAux=-1;
 	int length = ll_len(this);
+
 	if(this!=NULL && pFunc!=NULL)
 	{
 		returnAux=0;
@@ -649,6 +650,23 @@ int ll_map(LinkedList* this, int (*pFunc)(void*))
 	}
 	return returnAux;
 }
+
+int funcionContar(void* pContarElemento) //Modificar según necesidad
+{
+	int returnAux=-1;
+	/*Estructura*/ pEstructura = pContarElemento;
+	if(pContarElemento != NULL && /*Condicional tamaño not vacío*/)
+	{
+		returnAux =  pContarElemento ->  /*tamaño ll del elemento*/
+	}
+	else
+	{
+		returnAux=0;
+	}
+	return returnAux;
+}
+
+
 
 
 
