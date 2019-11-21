@@ -21,7 +21,6 @@ int parser_parseVentas(char* fileName, LinkedList* listaVentas)
 				else
 				break;
 	}while(!feof(fileName));
-
     return 1; // OK
 }
 
